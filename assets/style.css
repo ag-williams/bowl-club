@@ -26,8 +26,33 @@
 
 html { scroll-behavior: smooth; }
 
+/* Salad photo fills the sides of the page, behind the centered content column.
+   Each side strip gets its own copy of the photo, sized to the strip only,
+   so the photo is never stretched past its real resolution. */
+html { background: var(--color-ink); }
+
+html::before,
+html::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: calc((100vw - 1080px) / 2 + 40px); /* +40px tucks under the column's shadow */
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(43, 42, 37, 0.18), rgba(43, 42, 37, 0.18)),
+    url('images/background.jpg');
+  background-size: cover;
+}
+
+html::before { left: 0;  background-position: left center; }
+html::after  { right: 0; background-position: right center; }
+
 body {
-  margin: 0;
+  margin: 0 auto;
+  max-width: 1080px;
+  min-height: 100vh;
+  box-shadow: 0 0 40px rgba(43, 42, 37, 0.35);
   background: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-body);
@@ -77,7 +102,8 @@ p:last-child { margin-bottom: 0; }
 
 /* ---- Top navigation ---- */
 .site-header {
-  border-bottom: 1px solid var(--color-line);
+  background: #D9C7A0;                /* beige-tan */
+  border-bottom: 1px solid #C2AD82;   /* slightly darker tan edge */
 }
 
 .nav {
@@ -101,7 +127,26 @@ p:last-child { margin-bottom: 0; }
   text-decoration: none;
 }
 
-.brand svg { flex-shrink: 0; }
+.brand-logo {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  margin: -0.5em 0;   /* lets the logo be big without making the bar taller */
+}
+
+/* Homepage: logo beside the "Bowl Club" heading */
+.hero-title {
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+  margin-bottom: 1em;
+}
+.hero-title h1 { margin: 0; }
+.hero-logo {
+  flex-shrink: 0;
+  width: clamp(96px, 14vw, 150px);
+  height: auto;
+}
 
 .nav-links {
   display: flex;
@@ -171,6 +216,57 @@ main { display: block; }
 .hero p.lede {
   max-width: var(--measure);
   font-size: 1.2rem;
+}
+
+/* Two columns: text on the left (60%), rotating photos on the right (40%) */
+.hero {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2.5em;
+  align-items: stretch;
+}
+
+.hero-text { min-width: 0; }
+
+/* The photo column stretches to the text's height but never makes it taller */
+.hero-photos { position: relative; min-height: 220px; }
+
+.photo-stack {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.photo-slot {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 3px;
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+}
+
+.photo-slot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.photo-slot img.is-visible { opacity: 1; }
+
+/* Phones: photos drop below the text as one rotating photo */
+@media (max-width: 720px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-photos { min-height: 0; }
+  .photo-stack { position: static; }
+  .photo-slot { flex: none; aspect-ratio: 4 / 3; }
 }
 
 .bowl-divider {
@@ -271,7 +367,8 @@ main { display: block; }
 
 /* ---- Footer ---- */
 .site-footer {
-  border-top: 1px solid var(--color-line);
+  background: #D9C7A0;                /* beige-tan, matches the top bar */
+  border-top: 1px solid #C2AD82;
   padding: 2.5em 1.5em;
   text-align: left;
 }
