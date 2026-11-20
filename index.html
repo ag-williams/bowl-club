@@ -3,9 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bowl Club — free community dinners</title>
-<meta name="description" content="Bowl Club is a community dinner initiative. Come see what we do, our mission, our partners, and how to volunteer.">
+<title>Bowl Club — free community dinners at Colorado School of Mines</title>
+<meta name="description" content="Bowl Club is a community dinner initiative at Colorado School of Mines. Come see what we do, our mission, our partners, and how to volunteer.">
 <link rel="stylesheet" href="assets/style.css">
+
+<!-- Icons: browser tab, Android, and iPhone home screen -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/images/icon-192.png">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+<meta name="theme-color" content="#D9C7A0">
+
+<!-- Link previews (GroupMe, iMessage, Instagram, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bowl Club">
+<meta property="og:title" content="Bowl Club — free community dinners at Colorado School of Mines">
+<meta property="og:description" content="Bowl Club is a community dinner initiative at Colorado School of Mines. Come see what we do, our mission, our partners, and how to volunteer.">
+<meta property="og:url" content="https://ag-williams.github.io/bowl-club/">
+<meta property="og:image" content="https://ag-williams.github.io/bowl-club/assets/images/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -19,6 +36,7 @@
     <ul class="nav-links">
       <li><a href="index.html" aria-current="page">Welcome</a></li>
       <li><a href="mission-vision.html">Mission &amp; Vision</a></li>
+      <li><a href="about.html">About us</a></li>
       <li><a href="partners.html">Partners</a></li>
       <li><a href="volunteer.html">Volunteer</a></li>
     </ul>
@@ -33,29 +51,14 @@
       <img class="hero-logo" src="assets/images/logo.png" alt="Mines Bowl Club logo" width="150" height="150">
       <h1>Bowl Club</h1>
     </div>
-    <p class="lede">
-      Bowl Club's mission is to bridge the gap between food insecurity, excess food waste, and social isolation on campus through community dinner events. We source the majority of our food locally through food rescue and cook it ourselves. 
-    </p>
+    <!-- Text written in content/home/intro.md -->
+    <div class="lede" data-content="content/home/intro.md"></div>
 
-    <svg class="bowl-divider" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0 6 C 250 54, 750 54, 1000 6" stroke="#D8CDAF" stroke-width="1.5" fill="none"/>
-    </svg>
+    <p class="cta cta-between"><a class="button" href="volunteer.html">Get involved</a></p>
 
-    <!-- <div class="editme">
-      <strong>Editing tip:</strong> Replace the bracketed text on this page with your
-      own words. This paragraph box itself is just a note for you — delete the whole
-      <code>.editme</code> block once your content is in place.
-    </div> -->
+    <!-- Text written in content/home/story.md -->
+    <div data-content="content/home/story.md"></div>
 
-    <p>
-      <!-- [EDIT ME] Use this paragraph to describe how Bowl Club started, who it's for,
-      and what a typical dinner looks like. Two or three short paragraphs is plenty —
-      people scan a homepage, they don't read it word for word. -->
-      Bowl Club started because of an experience in sustainable food culture that we 
-      wanted to recreate in the Mines community.
-    </p>
-
-    <p><a class="button" href="volunteer.html">Get involved</a></p>
    </div>
 
     <!-- Rotating photos from past dinners. The photos live in assets/images
@@ -65,27 +68,30 @@
     </div>
   </section>
 
-  <section class="feature-grid" aria-label="What Bowl Club offers">
-    <div class="feature">
-      <svg class="mark" viewBox="0 0 34 34" fill="none" aria-hidden="true"><circle cx="17" cy="17" r="15" stroke="#B9862F" stroke-width="2"/></svg>
-      <h3>Monthly dinners</h3>
-      <p>We aim to serve food once a month during the school year. Keep an eye out for our next date and bring a bowl!</p>
-    </div>
-    <div class="feature">
-      <svg class="mark" viewBox="0 0 34 34" fill="none" aria-hidden="true"><circle cx="17" cy="17" r="15" stroke="#8B3A3A" stroke-width="2"/></svg>
-      <h3>Open to everyone</h3>
-      <p>Bowl Club is an inclusive community. Join our <a href="https://web.groupme.com/join_group/113028750/BRfTVQ9s" target="_blank" rel="noopener noreferrer">GroupMe</a> to stay updated with us.</p>
-    </div>
+  <!-- Statistics: the numbers are written in content/home/stats.md -->
+  <section class="stats" aria-label="Bowl Club by the numbers">
+    <p class="kicker">So far, together</p>
+    <h2>Bowl Club by the numbers</h2>
+    <div class="stat-grid" data-stats="content/home/stats.md"></div>
   </section>
+
 </main>
 
 <footer class="site-footer">
   <div class="container-inner">
-    <span>Bowl Club — Colorado School of Mines</span>
-    <span>csmbowlclub@gmail.com</span>
+    <span class="footer-org">Bowl Club —
+      <a class="mines-link" href="https://www.mines.edu/" target="_blank" rel="noopener"><img class="mines-logo" src="assets/images/Side%20Stack/Mines-side-CO.png" alt="Colorado School of Mines" width="178" height="50"></a>
+    </span>
+    <span class="footer-links">
+      <a href="https://groupme.com/join_group/113028750/BRfTVQ9s" target="_blank" rel="noopener noreferrer">Join our GroupMe!</a>
+      <a href="mailto:csmbowlclub@gmail.com">csmbowlclub@gmail.com</a>
+    </span>
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script src="assets/content.js"></script>
 <script src="assets/slideshow.js"></script>
+<script src="assets/stats.js"></script>
 </body>
 </html>

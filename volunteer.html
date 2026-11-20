@@ -6,6 +6,23 @@
 <title>Volunteer — Bowl Club</title>
 <meta name="description" content="Ways to volunteer with Bowl Club.">
 <link rel="stylesheet" href="assets/style.css">
+
+<!-- Icons: browser tab, Android, and iPhone home screen -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/images/icon-192.png">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+<meta name="theme-color" content="#D9C7A0">
+
+<!-- Link previews (GroupMe, iMessage, Instagram, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bowl Club">
+<meta property="og:title" content="Volunteer — Bowl Club">
+<meta property="og:description" content="Ways to volunteer with Bowl Club.">
+<meta property="og:url" content="https://ag-williams.github.io/bowl-club/volunteer.html">
+<meta property="og:image" content="https://ag-williams.github.io/bowl-club/assets/images/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -19,6 +36,7 @@
     <ul class="nav-links">
       <li><a href="index.html">Welcome</a></li>
       <li><a href="mission-vision.html">Mission &amp; Vision</a></li>
+      <li><a href="about.html">About us</a></li>
       <li><a href="partners.html">Partners</a></li>
       <li><a href="volunteer.html" aria-current="page">Volunteer</a></li>
     </ul>
@@ -28,39 +46,38 @@
 <main id="main">
   <div class="page-header">
     <h1>Interested in volunteering?</h1>
-    <p>Bowl Club wouldn't be possible without our amazing fleet of volunteers. Volunteer shifts are usually around 2 hours, but we'd love to have you even if you only have 30 minutes to spare! Reach out to Cooper Carlson at cjcarlson@mines.edu for more details.
-    </p>
+    <!-- Text written in content/volunteer/intro.md -->
+    <div data-content="content/volunteer/intro.md"></div>
   </div>
 
   <div class="container">
     <section>
       <h2>Ways to help</h2>
-      <div class="card-list">
-        <div class="card">
-          <h3>Cooking &amp; prep</h3>
-          <p>We do the majority of our cooking over the weekend. 
-            This role entails, chopping, prepping, and cooking meals.</p>
-        </div>
-        <div class="card">
-          <h3>Setup &amp; cleanup</h3>
-          <p> Setup begins at 4pm the day of. This role includes arranging tables and chairs, decorating, washing dishes, and preparing food into serving trays. We serve food until 8pm (or until it runs out). Cleanup includes washing dishes, cleaning the floor and tables, and packing up equipment.</p>
-      </div>
+      <!-- Each "## Heading" in content/volunteer/roles.md becomes one card here -->
+      <div class="card-list" data-content="content/volunteer/roles.md" data-cards="card"></div>
     </section>
 
     <section>
       <h2>What to expect</h2>
-      <p>About a week in advance of the dinner, we will send out a volunteer availability form for you to fill out. From there, you will be added to a volunteer GroupMe and assigned a role according to your availability. If you will be working with food, we will reach out to you to complete an ~30 minute food safety training. Contact Cooper Carlson with any questions: cjcarlson@mines.edu
-      
-      We look forward to having you as apart of the team!</p>
+      <!-- Text written in content/volunteer/expect.md -->
+      <div data-content="content/volunteer/expect.md"></div>
     </section>
+  </div>
 </main>
 
 <footer class="site-footer">
   <div class="container-inner">
-    <span>Bowl Club — Colorado School of Mines</span>
-    <span>csmbowlclub@gmail.com</span>
+    <span class="footer-org">Bowl Club —
+      <a class="mines-link" href="https://www.mines.edu/" target="_blank" rel="noopener"><img class="mines-logo" src="assets/images/Side%20Stack/Mines-side-CO.png" alt="Colorado School of Mines" width="178" height="50"></a>
+    </span>
+    <span class="footer-links">
+      <a href="https://groupme.com/join_group/113028750/BRfTVQ9s" target="_blank" rel="noopener noreferrer">Join our GroupMe!</a>
+      <a href="mailto:csmbowlclub@gmail.com">csmbowlclub@gmail.com</a>
+    </span>
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script src="assets/content.js"></script>
 </body>
 </html>
