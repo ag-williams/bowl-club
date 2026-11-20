@@ -6,6 +6,23 @@
 <title>Partners — Bowl Club</title>
 <meta name="description" content="Organizations and businesses that partner with Bowl Club.">
 <link rel="stylesheet" href="assets/style.css">
+
+<!-- Icons: browser tab, Android, and iPhone home screen -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/images/icon-192.png">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+<meta name="theme-color" content="#D9C7A0">
+
+<!-- Link previews (GroupMe, iMessage, Instagram, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bowl Club">
+<meta property="og:title" content="Partners — Bowl Club">
+<meta property="og:description" content="Organizations and businesses that partner with Bowl Club.">
+<meta property="og:url" content="https://ag-williams.github.io/bowl-club/partners.html">
+<meta property="og:image" content="https://ag-williams.github.io/bowl-club/assets/images/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -19,6 +36,7 @@
     <ul class="nav-links">
       <li><a href="index.html">Welcome</a></li>
       <li><a href="mission-vision.html">Mission &amp; Vision</a></li>
+      <li><a href="about.html">About us</a></li>
       <li><a href="partners.html" aria-current="page">Partners</a></li>
       <li><a href="volunteer.html">Volunteer</a></li>
     </ul>
@@ -28,47 +46,39 @@
 <main id="main">
   <div class="page-header">
     <h1>Our partners</h1>
-    <p>Bowl Club's dinners are made possible with help from the organizations and businesses below. Bowl Club partners offer support through donated ingredients, equipment, and funding.</p>
+    <!-- Text written in content/partners/intro.md -->
+    <div data-content="content/partners/intro.md"></div>
   </div>
 
   <div class="container">
     <section>
       <h2>Community partners</h2>
-      <div class="card-list">
-        <div class="card">
-          <h3>Mines Market Sodexo</h3>
-          <p>Huge thank you to Sodexo for providing us with the dry ingredients that 
-            we would have otherwise needed to purchase.</p>
-        </div>
-        <div class="card">
-          <h3>Uproot</h3>
-          <p>Thank you to Uproot for helping us source recovered produce.</p>
-        </div>
-        <div class="card">
-          <h3>Food Bank of the Rockies (Calvery Church)</h3>
-          <p>Thank you to Calvery Church for providing us recovered produce.</p>
-        </div>
-        <div class="card">
-          <h3>Foot Hills Art Center</h3>
-          <p>Thank you Foot Hills Art Center for donating ceramic bowls.</p>
-        </div>
-      </div>
+      <!-- Each "## Heading" in content/partners/list.md becomes one card here -->
+      <div class="card-list" data-content="content/partners/list.md" data-cards="card"></div>
     </section>
 
     <section>
       <h2>Become a partner</h2>
-      <p>Interested in helping us make Bowl Club happen? Please reach out to us! Follow the link below to get in touch with us.</p>
-      <p><a class="button secondary" href="csmbowlclub@gmail.com">Contact us about partnering</a></p>
+      <!-- Text written in content/partners/become.md -->
+      <div data-content="content/partners/become.md"></div>
+      <p class="cta"><a class="button secondary" href="mailto:csmbowlclub@gmail.com">Contact us about partnering</a></p>
     </section>
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="container-inner">
-    <span>Bowl Club — Colorado School of Mines</span>
-    <span>csmbowlclub@gmail.com</span>
+    <span class="footer-org">Bowl Club —
+      <a class="mines-link" href="https://www.mines.edu/" target="_blank" rel="noopener"><img class="mines-logo" src="assets/images/Side%20Stack/Mines-side-CO.png" alt="Colorado School of Mines" width="178" height="50"></a>
+    </span>
+    <span class="footer-links">
+      <a href="https://groupme.com/join_group/113028750/BRfTVQ9s" target="_blank" rel="noopener noreferrer">Join our GroupMe!</a>
+      <a href="mailto:csmbowlclub@gmail.com">csmbowlclub@gmail.com</a>
+    </span>
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script src="assets/content.js"></script>
 </body>
 </html>

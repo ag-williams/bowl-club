@@ -28,25 +28,30 @@ html { scroll-behavior: smooth; }
 
 /* Salad photo fills the sides of the page, behind the centered content column.
    Each side strip gets its own copy of the photo, sized to the strip only,
-   so the photo is never stretched past its real resolution. */
-html { background: var(--color-ink); }
+   so the photo is never stretched past its real resolution.
+   Only on screens wider than the column — phones never download the photo. */
+html { background: var(--color-bg); }
 
-html::before,
-html::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: calc((100vw - 1080px) / 2 + 40px); /* +40px tucks under the column's shadow */
-  z-index: -1;
-  background-image:
-    linear-gradient(rgba(43, 42, 37, 0.18), rgba(43, 42, 37, 0.18)),
-    url('images/background.jpg');
-  background-size: cover;
+@media (min-width: 1081px) {
+  html { background: var(--color-ink); }
+
+  html::before,
+  html::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: calc((100vw - 1080px) / 2 + 40px); /* +40px tucks under the column's shadow */
+    z-index: -1;
+    background-image:
+      linear-gradient(rgba(43, 42, 37, 0.18), rgba(43, 42, 37, 0.18)),
+      url('images/background.jpg');
+    background-size: cover;
+  }
+
+  html::before { left: 0;  background-position: left center; }
+  html::after  { right: 0; background-position: right center; }
 }
-
-html::before { left: 0;  background-position: left center; }
-html::after  { right: 0; background-position: right center; }
 
 body {
   margin: 0 auto;
@@ -172,6 +177,17 @@ p:last-child { margin-bottom: 0; }
   border-bottom-color: var(--color-accent);
 }
 
+/* Phones: logo on its own row, menu links spaced out as easy-to-tap targets */
+@media (max-width: 640px) {
+  .nav { padding: 1em 1.2em 0.6em; gap: 0.6em; justify-content: center; }
+  .nav-links { justify-content: center; gap: 0 0.4em; }
+  .nav-links a {
+    display: inline-block;
+    padding: 0.55em 0.5em;   /* about 44px tall: Apple's minimum comfortable tap size */
+    font-size: 1rem;
+  }
+}
+
 /* ---- Page shell ---- */
 main { display: block; }
 
@@ -213,10 +229,13 @@ main { display: block; }
   margin: 0 0 0.4em;
 }
 
-.hero p.lede {
+.hero .lede {
   max-width: var(--measure);
-  font-size: 1.2rem;
 }
+.hero .lede p { font-size: 1.2rem; }
+
+/* Space above a button that follows a block of text */
+.cta { margin-top: 1.6em; }
 
 /* Two columns: text on the left (60%), rotating photos on the right (40%) */
 .hero {
@@ -301,12 +320,18 @@ main { display: block; }
   margin-bottom: 0.4em;
 }
 
-.feature .mark {
-  display: inline-block;
-  width: 34px;
-  height: 34px;
+/* Small colored circle above each highlight; colors take turns */
+.feature::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--color-gold);
+  border-radius: 50%;
   margin-bottom: 0.8em;
 }
+.feature:nth-child(3n+2)::before { border-color: var(--color-accent); }
+.feature:nth-child(3n)::before   { border-color: var(--color-sage); }
 
 @media (max-width: 720px) {
   .feature-grid { grid-template-columns: 1fr; }
@@ -383,3 +408,82 @@ main { display: block; }
   font-size: 0.9rem;
   color: var(--color-ink-soft);
 }
+
+/* Mines logo in the footer, in place of the words "Colorado School of Mines" */
+.site-footer .container-inner { align-items: center; }
+.footer-org { display: inline-flex; align-items: center; gap: 0.3em; }
+.mines-logo { height: 50px; width: auto; }
+.mines-link { display: inline-flex; line-height: 0; }
+.mines-link:hover .mines-logo { opacity: 0.8; }
+.footer-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4em 1.4em; }
+.footer-links a[href*="groupme"] { font-weight: 600; }
+
+/* ============================================
+   Homepage statistics
+   ============================================ */
+.stats {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1em 1.5em 3.5em;
+  text-align: center;
+}
+.stats .kicker {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-sage);
+  font-size: 1.1rem;
+  margin: 0 0 0.3em;
+}
+.stats h2 { margin-bottom: 1.2em; }
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4em;
+}
+@media (max-width: 720px) {
+  .stat-grid { grid-template-columns: 1fr; }
+}
+
+.stat {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 3px;
+  padding: 1.6em 1.2em 1.4em;
+}
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 2.9rem);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--color-accent);
+  margin: 0 0 0.15em;
+  font-variant-numeric: tabular-nums;
+}
+.stat-label { margin: 0; font-size: 1rem; }
+
+/* ============================================
+   Image placeholder — marks a spot where our graphic designer
+   needs to supply an image. Usage:
+   <img class="image-placeholder" src="assets/images/placeholder-stew.webp"
+        alt="IMAGE NEEDED: what it shows · where it goes · size/shape">
+   ============================================ */
+.image-placeholder {
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 0.8em;
+  object-fit: contain;
+  image-rendering: pixelated;   /* keeps the pixel-art edges crisp */
+}
+
+/* Stat tile images (pixel art) */
+.stat-art {
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 0.8em;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+.cta-between { margin: 1.6em 0 1.8em; text-align: center; }

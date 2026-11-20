@@ -1,0 +1,1 @@
+Bowl Club wouldn't be possible without our amazing fleet of volunteers. Volunteer shifts are usually around 2 hours, but we'd love to have you even if you only have 30 minutes to spare! Reach out to Cooper Carlson at [cjcarlson@mines.edu](mailto:cjcarlson@mines.edu) for more details.

@@ -1,0 +1,23 @@
+# Only files the website actually uses are committed.
+# Everything below stays on this computer but is never uploaded.
+
+# Mac system files
+.DS_Store
+
+# Editor and AI assistant files
+.vscode/
+.claude/
+CLAUDE.md
+
+# Notes for whoever edits the text (not shown on the site)
+content/README.md
+
+# Master logo (7000px). The site uses the smaller copies made from it.
+assets/images/bowl-club-logo.png
+
+# Mines logo versions the site doesn't use.
+# The footer uses "Side Stack/Mines-side-CO.png", which is NOT ignored.
+assets/images/Horizontal/
+assets/images/Center Stack/
+assets/images/Side Stack/*
+!assets/images/Side Stack/Mines-side-CO.png

@@ -1,0 +1,1 @@
+Bowl Club's mission is to bridge the gap between food insecurity, excess food waste, and social isolation on campus through community dinner events. We source the majority of our food locally through food rescue and cook it ourselves.

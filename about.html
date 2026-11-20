@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Bowl Club</title>
+<meta name="description" content="The history of Bowl Club, a community dinner initiative at Colorado School of Mines.">
+<link rel="stylesheet" href="assets/style.css">
+
+<!-- Icons: browser tab, Android, and iPhone home screen -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/images/icon-192.png">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+<meta name="theme-color" content="#D9C7A0">
+
+<!-- Link previews (GroupMe, iMessage, Instagram, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bowl Club">
+<meta property="og:title" content="About Us — Bowl Club">
+<meta property="og:description" content="The history of Bowl Club, a community dinner initiative at Colorado School of Mines.">
+<meta property="og:url" content="https://ag-williams.github.io/bowl-club/about.html">
+<meta property="og:image" content="https://ag-williams.github.io/bowl-club/assets/images/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="assets/images/logo-small.png" alt="" width="52" height="52">
+      Bowl Club
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Welcome</a></li>
+      <li><a href="mission-vision.html">Mission &amp; Vision</a></li>
+      <li><a href="about.html" aria-current="page">About us</a></li>
+      <li><a href="partners.html">Partners</a></li>
+      <li><a href="volunteer.html">Volunteer</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="hero-text">
+      <h1>About us</h1>
+      <h2>Our history</h2>
+      <!-- The text below is written in content/about/history.md -->
+      <div data-content="content/about/history.md"></div>
+    </div>
+
+    <!-- Rotating photos (set up in assets/slideshow.js).
+         data-start picks which photo shows first on this page. -->
+    <div class="hero-photos" aria-hidden="true" data-start="13">
+      <div class="photo-stack"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container-inner">
+    <span class="footer-org">Bowl Club —
+      <a class="mines-link" href="https://www.mines.edu/" target="_blank" rel="noopener"><img class="mines-logo" src="assets/images/Side%20Stack/Mines-side-CO.png" alt="Colorado School of Mines" width="178" height="50"></a>
+    </span>
+    <span class="footer-links">
+      <a href="https://groupme.com/join_group/113028750/BRfTVQ9s" target="_blank" rel="noopener noreferrer">Join our GroupMe!</a>
+      <a href="mailto:csmbowlclub@gmail.com">csmbowlclub@gmail.com</a>
+    </span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script src="assets/content.js"></script>
+<script src="assets/slideshow.js"></script>
+</body>
+</html>
